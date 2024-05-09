@@ -4,12 +4,12 @@ import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
 import java.util.Scanner;
-import java.util.stream.Collector;
 import java.util.stream.Collectors;
 
 import com.joel.screenmath.model.DatosEpisodio;
 import com.joel.screenmath.model.DatosSerie;
 import com.joel.screenmath.model.DatosTemporada;
+import com.joel.screenmath.model.Episodio;
 import com.joel.screenmath.service.ConsumoApi;
 import com.joel.screenmath.service.ConvierteDatos;
 
@@ -65,5 +65,12 @@ public class Principal {
                     .sorted(Comparator.comparing(DatosEpisodio::evaluacion).reversed())
                     .limit(5)
                     .forEach(System.out::println);
+
+        //Convirtiendo los datos a una lista del tipo Episodio
+        List<Episodio> episodios = temporadas.stream()
+                            .flatMap(t -> t.episodios().stream()
+                            .map(d -> new Episodio(t.numero(),d)))
+                            .collect(Collectors.toList());
+        episodios.forEach(System.out::println);
     }
 }
