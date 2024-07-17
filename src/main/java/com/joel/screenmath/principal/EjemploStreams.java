@@ -5,13 +5,13 @@ import java.util.List;
 
 public class EjemploStreams {
     public void muestraEjemplo(){
-        List<String> nombres = Arrays.asList("Brenda","Luis","Eric","Fernando");
+        // List<String> nombres = Arrays.asList("Brenda","Luis","Eric","Fernando");
 
-        nombres.stream()
-                .sorted()
-                .limit(2)
-                .filter(n -> n.startsWith("B"))
-                .map(n -> n.toUpperCase())
-                .forEach(System.out::println);
+        // nombres.stream()
+        //         .sorted()
+        //         .limit(2)
+        //         .filter(n -> n.startsWith("B"))
+        //         .map(n -> n.toUpperCase())
+        //         .forEach(System.out::println);
     }
 }
